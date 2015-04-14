@@ -12,12 +12,13 @@ Islamic Library plugin contains books, articles, fatwa, videos, quran, poster, c
 
 == Description ==
 
-Islamic Library plugin contains books, articles, fatwa, videos, quran, poster, cards, programs, favorites, news, apps, MP3, download, and torrent in more than 130 languages
+Islamic Library plugin contains books, audios, articles, fatwa, videos, quran, poster, cards, programs, favorites, news, apps, MP3, download, and torrent in more than 130 languages
 
 
 Features:
 
 * Books
+* audios
 * Articles
 * Fatwa
 * Videos

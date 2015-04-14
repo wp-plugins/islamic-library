@@ -6,7 +6,7 @@
 */
 
 $language_code = array("af","ak","az","bm","lr","kd","bs","ca","cj","da","de","en","es","fr","ha","rw","id","it","jo","sw","cd","lg","hu","mg","md","ms","mos","nl","sj","or","pl","pt","aa","ro","sq","sk","sl","sx","so","sv","tl","tz","tk","tr","vi","wo","yo","ny","xh","zu","lv","lt","ff","sg","tm","cs","el","uz","bg","inh","ky","mk","ce","ru","sr","tt","tg","uk","av","hy","he","is","nk","et","ug","ur","bh","ba","ka","sd","ci","ar","gh","gm","fa","fl","ir","fi","kk","cm","ks","ku","mn","ps","dv","ne","mr","hi","as","bn","gu","ta","te","kn","ml","si","th","my","ti","am","km","zh","ja","ko");
-$language_section = array("showall", "books", "articles", "fatwa", "videos", "quran", "poster", "cards", "programsv", "favorites", "news", "apps");
+$language_section = array("showall", "books", "audios", "articles", "fatwa", "videos", "quran", "poster", "cards", "programsv", "favorites", "news", "apps");
 
 function islamic_library_words($k=''){
 
