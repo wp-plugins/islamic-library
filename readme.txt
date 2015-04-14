@@ -1,7 +1,7 @@
 === Islamic Library ===
 Contributors: islamhouse.com
 Donate link: http://www.islamhouse.com
-Tags: books, articles, fatwa, videos, quran, poster, cards, programs, favorites, news, apps, MP3, download, torrent
+Tags: books, audios, articles, fatwa, videos, quran, poster, cards, programs, favorites, news, apps, MP3, download, torrent, islam
 Requires at least: 3.0
 Tested up to: 4.1.1
 Stable tag: 1.0
