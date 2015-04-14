@@ -109,31 +109,31 @@ if($section == $postinfo->type){
 	$output = '<ol class="breadcrumb">
 	  <li><a href="'.home_url().'">'.islamic_library_words('home').'</a></li>
 	  <li><a href="'.$permalink.'">'.ucfirst($section).'</a></li>
-	  <li class="active">'.htmlEntities($postinfo->title).'</li>
+	  <li class="active">'.strip_tags($postinfo->title).'</li>
 	</ol>';
 	
 	if($postinfo->image == ""){
 		$image = trailingslashit(plugins_url(null,__FILE__)).'/icons/'.$section.'.png';
 	}else{
-		$image = htmlEntities($postinfo->image);
+		$image = strip_tags($postinfo->image);
 	}
 	
-	//$source = 'http://islamhouse.com/'.htmlEntities($postinfo->source_language).'/'.$postinfo->type.'/'.$source_id.'/';
-	//$main_source = 'http://islamhouse.com/'.htmlEntities($postinfo->source_language).'/main/';
+	//$source = 'http://islamhouse.com/'.strip_tags($postinfo->source_language).'/'.$postinfo->type.'/'.$source_id.'/';
+	//$main_source = 'http://islamhouse.com/'.strip_tags($postinfo->source_language).'/main/';
 	
-	$source = 'http://plaintruth.org/'.htmlEntities($postinfo->source_language).'/'.$postinfo->type.'/'.$source_id.'/';
-	$main_source = 'http://plaintruth.org/'.htmlEntities($postinfo->source_language).'/main/';
+	$source = 'http://plaintruth.org/'.strip_tags($postinfo->source_language).'/'.$postinfo->type.'/'.$source_id.'/';
+	$main_source = 'http://plaintruth.org/'.strip_tags($postinfo->source_language).'/main/';
 
 	$output .= '<div class="media">';
 	$output .= '<div class="media-body">';
-	$output .= '<h4 class="media-heading"><a target="_blank" href="'.$source.'">'.htmlEntities($postinfo->title).'</a></h4>';
+	$output .= '<h4 class="media-heading"><a target="_blank" href="'.$source.'">'.strip_tags($postinfo->title).'</a></h4>';
 	$output .= '<ul>';
 	if($postinfo->description != ""){
-	$output .= '<li><span>'.islamic_library_words('description').'</span> '.htmlEntities($postinfo->description).'</li>';
+	$output .= '<li><span>'.islamic_library_words('description').'</span> '.strip_tags($postinfo->description).'</li>';
 	}
 	$output .= '<li><span>'.islamic_library_words('language').'</span> <a target="_blank" href="'.$main_source.'">'.$language_info[$postinfo->source_language][1].'</a></li>';
 	if($postinfo->translated_language != ""){
-	$output .= '<li><span>'.islamic_library_words('translated').'</span> '.htmlEntities($postinfo->translated_language).'</li>';
+	$output .= '<li><span>'.islamic_library_words('translated').'</span> '.strip_tags($postinfo->translated_language).'</li>';
 	}
 
 	/*
@@ -162,7 +162,7 @@ if($section == $postinfo->type){
 			    $order = $postinfo2->order;
 			    $size = $postinfo2->size;
 			    $extension_type = $postinfo2->extension_type;
-			    $file_url = htmlEntities($postinfo2->url);
+			    $file_url = strip_tags($postinfo2->url);
 			    
 			    if($extension_type == "MP3"){
 			    $icon = 'mp3.png';
@@ -224,7 +224,7 @@ if($section == $postinfo->type){
 				$icon = 'other.png';
 				$file_view = '';
 				}
-			    $output .= '<li>'.$order.'- <a target="_blank" href="'.$file_url.'" title="'.htmlEntities($postinfo2->description).' '.islamic_library_words('size').' '.$size.'"><img src="'.trailingslashit(plugins_url(null,__FILE__)).'/icons/'.$icon.'" alt="'.$file_url.'" /> ...'.substr($file_url, -50).'</a>'.$file_view.'</li>';
+			    $output .= '<li>'.$order.'- <a target="_blank" href="'.$file_url.'" title="'.strip_tags($postinfo2->description).' '.islamic_library_words('size').' '.$size.'"><img src="'.trailingslashit(plugins_url(null,__FILE__)).'/icons/'.$icon.'" alt="'.$file_url.'" /> ...'.substr($file_url, -50).'</a>'.$file_view.'</li>';
 		    }
 		$output .= '</ul>';
 	$output .= '</li>';
@@ -244,7 +244,7 @@ if($section == $postinfo->type){
     $output .= '<p>'.islamic_library_words('this_page_translated').' ';
     			$view_locales = '';
 		    foreach ($postinfo->locales as $postinfo3 => $v) {
-		    	$params = array( 'item_id' => $source_id, 'language_code' => $v, 'type' => htmlEntities($postinfo->type) );
+		    	$params = array( 'item_id' => $source_id, 'language_code' => $v, 'type' => strip_tags($postinfo->type) );
 				$postlink = add_query_arg( $params, $permalink );
 			    $view_locales .= '<a href="'.$postlink.'">'.$language_info[$v][1].'</a>, ';
 		    }
@@ -252,7 +252,7 @@ if($section == $postinfo->type){
 	$output .= '</p>';
 	
 	$output .= '</div>';
-	//$output .= '<div class="media-right media-middle"><a href="#"><img class="media-object" src="'.$image.'" alt="'.htmlEntities($postinfo->title).'" /></a></div>';
+	//$output .= '<div class="media-right media-middle"><a href="#"><img class="media-object" src="'.$image.'" alt="'.strip_tags($postinfo->title).'" /></a></div>';
 	$output .= '</div>';
 
 }else{
@@ -310,13 +310,13 @@ foreach ($item->data as $postinfo) {
 	if($postinfo->image == ""){
 		$image = trailingslashit(plugins_url(null,__FILE__)).'/icons/'.$section.'.png';
 	}else{
-		$image = htmlEntities($postinfo->image);
+		$image = strip_tags($postinfo->image);
 	}
 	
-	//$source = 'http://islamhouse.com/'.htmlEntities($postinfo->source_language).'/'.$postinfo->type.'/'.$postinfo->id.'/';
-	$source = 'http://plaintruth.org/'.htmlEntities($postinfo->source_language).'/'.$postinfo->type.'/'.$postinfo->id.'/';
+	//$source = 'http://islamhouse.com/'.strip_tags($postinfo->source_language).'/'.$postinfo->type.'/'.$postinfo->id.'/';
+	$source = 'http://plaintruth.org/'.strip_tags($postinfo->source_language).'/'.$postinfo->type.'/'.$postinfo->id.'/';
 	
-	$params = array( 'item_id' => $postinfo->id, 'language_code' => htmlEntities($postinfo->source_language), 'type' => htmlEntities($postinfo->type) );
+	$params = array( 'item_id' => $postinfo->id, 'language_code' => strip_tags($postinfo->source_language), 'type' => strip_tags($postinfo->type) );
 	$postlink = add_query_arg( $params, $permalink );
 	
 	if($postinfo->title == ""){
@@ -325,20 +325,20 @@ foreach ($item->data as $postinfo) {
 	$output .= '<div class="media">';
 	
 	$output .= '<div class="media-body">';
-	$output .= '<h4 class="media-heading"><a href="'.$postlink.'">'.htmlEntities($postinfo->title).'</a></h4>';
+	$output .= '<h4 class="media-heading"><a href="'.$postlink.'">'.strip_tags($postinfo->title).'</a></h4>';
 	$output .= '<ul>';
-	$output .= '<li><span>'.islamic_library_words('description').'</span> '.htmlEntities($postinfo->description).'</li>';
+	$output .= '<li><span>'.islamic_library_words('description').'</span> '.strip_tags($postinfo->description).'</li>';
 	$output .= '<li><span>'.islamic_library_words('language').'</span> '.$language_info[$lang][1].'</li>';
-	//$output .= '<li><span>'.islamic_library_words('translated').'</span> '.htmlEntities($postinfo->translated_language).'</li>';
+	//$output .= '<li><span>'.islamic_library_words('translated').'</span> '.strip_tags($postinfo->translated_language).'</li>';
     if (is_array($postinfo->prepared_by)){
 	    		$authors = '';
 		    foreach ($postinfo->prepared_by as $postinfox1) {
 			    $Prepared_id = $postinfox1->id;
 			    $Prepared_source_id = $postinfox1->source_id;
-			    $Prepared_title = htmlEntities($postinfox1->title);
-			    $Prepared_type = htmlEntities($postinfox1->type);
-			    $Prepared_kind = htmlEntities($postinfox1->kind);
-			    $Prepared_description = htmlEntities($postinfox1->description);
+			    $Prepared_title = strip_tags($postinfox1->title);
+			    $Prepared_type = strip_tags($postinfox1->type);
+			    $Prepared_kind = strip_tags($postinfox1->kind);
+			    $Prepared_description = strip_tags($postinfox1->description);
 			    if($Prepared_description == ""){
 			    $Prepared_desc = $Prepared_title;
 			    }else{
@@ -361,7 +361,7 @@ foreach ($item->data as $postinfo) {
 	$output .= '</ul>';
 	$output .= '</div>';
 	if($postinfo->image != ""){
-	$output .= '<div class="media-right media-middle"><a href="'.$postlink.'"><img class="media-object" src="'.$image.'" alt="'.htmlEntities($postinfo->title).'" /></a></div>';
+	$output .= '<div class="media-right media-middle"><a href="'.$postlink.'"><img class="media-object" src="'.$image.'" alt="'.strip_tags($postinfo->title).'" /></a></div>';
 	}
 	$output .= '</div>';
 	/*
@@ -372,8 +372,8 @@ foreach ($item->data as $postinfo) {
 			    $output .= '<li>Order: '.$postinfo2->order.'</li>';
 			    $output .= '<li>Size: '.$postinfo2->size.'</li>';
 			    $output .= '<li>Extension type: '.$postinfo2->extension_type.'</li>';
-			    $output .= '<li>Description: '.htmlEntities($postinfo2->description).'</li>';
-			    $output .= '<li>URL: '.htmlEntities($postinfo2->url).'</li>';
+			    $output .= '<li>Description: '.strip_tags($postinfo2->description).'</li>';
+			    $output .= '<li>URL: '.strip_tags($postinfo2->url).'</li>';
 		    }
 		$output .= '</ul>';
 	$output .= '</li>';
