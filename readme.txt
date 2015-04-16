@@ -4,7 +4,7 @@ Donate link: http://www.islamhouse.com
 Tags: books, audios, articles, fatwa, videos, quran, poster, cards, programs, favorites, news, apps, MP3, download, torrent, islam
 Requires at least: 3.0
 Tested up to: 4.1.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: Free
 
 Islamic Library plugin contains books, articles, fatwa, videos, quran, poster, cards, apps, MP3, download, news and torrent in more than 130 languages
@@ -48,3 +48,11 @@ For Support: [IslamHouse](http://www.islamhouse.com).
 1. In Post 1
 1. In Post 2
 1. In Post 3
+
+
+== Changelog ==
+
+= 1.1 =
+
+* Added: New Options.
+* Fixed: pagination.

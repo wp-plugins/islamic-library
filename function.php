@@ -2,7 +2,7 @@
 /* 
  * Array and functions
  * Author: IslamHouse.com
- * Since: 1.0
+ * Since: 1.1
 */
 
 $language_code = array("af","ak","az","bm","lr","kd","bs","ca","cj","da","de","en","es","fr","ha","rw","id","it","jo","sw","cd","lg","hu","mg","md","ms","mos","nl","sj","or","pl","pt","aa","ro","sq","sk","sl","sx","so","sv","tl","tz","tk","tr","vi","wo","yo","ny","xh","zu","lv","lt","ff","sg","tm","cs","el","uz","bg","inh","ky","mk","ce","ru","sr","tt","tg","uk","av","hy","he","is","nk","et","ug","ur","bh","ba","ka","sd","ci","ar","gh","gm","fa","fl","ir","fi","kk","cm","ks","ku","mn","ps","dv","ne","mr","hi","as","bn","gu","ta","te","kn","ml","si","th","my","ti","am","km","zh","ja","ko");
@@ -16,8 +16,8 @@ $word['home'] = 'الرئيسية';
 $word['error'] = 'خطأ';
 $word['copy'] = 'انسخ الكود وضعه في المقال او الصفحة';
 $word['select'] = 'اختر اللغة:';
-$word['Languages'] = 'اللغات:';
-$word['Language'] = 'اللغة:';
+$word['languages'] = 'اللغات:';
+$word['language'] = 'اللغة:';
 $word['if_empty'] = 'إذا كان الحقل فارغا فسيتم كتابة اسم الإذاعة تلقائيا.';
 $word['options'] = 'الخيارات:';
 $word['player_height'] = 'إرتفاع المشغل.';
@@ -38,14 +38,31 @@ $word['size'] = 'الحجم:';
 $word['section_name'] = 'القسم:';
 $word['items'] = 'عدد المواد:';
 $word['shortcode'] = 'الكود:';
+$word['hidden_date'] = 'عرض <strong>التاريخ</strong> في صفحة الأقسام';
+$word['hidden_prepared'] = 'عرض <strong>أعدت بواسطة</strong> في صفحة الأقسام';
+$word['hidden_language'] = 'عرض <strong>اسم اللغة</strong> في صفحة الأقسام';
+$word['hidden_translated_into'] = 'عرض <strong>مترجمة إلى</strong> في صفحة الأقسام';
+$word['hidden_source'] = 'عرض <strong>مصدر المادة</strong> في صفحة الأقسام';
+$word['hidden_image'] = 'عرض <strong>الصورة</strong> في صفحة الأقسام';
+$word['hidden_info_date'] = 'عرض <strong>التاريخ</strong> في صفحة بيانات المادة';
+$word['hidden_info_prepared'] = 'عرض <strong>أعدت بواسطة</strong> في صفحة بيانات المادة';
+$word['hidden_info_language'] = 'عرض <strong>اسم اللغة</strong> في صفحة بيانات المادة';
+$word['hidden_info_translated_into'] = 'عرض <strong>مترجمة إلى</strong> في صفحة بيانات المادة';
+$word['hidden_info_source'] = 'عرض <strong>المصدر</strong> في صفحة بيانات المادة';
+$word['hidden_info_full_description'] = 'عرض <strong>الوصف المطوّل</strong> في صفحة بيانات المادة';
+$word['hidden_info_attachments'] = 'عرض <strong>المرفقات</strong> في صفحة بيانات المادة';
+$word['hidden_info_image'] = 'عرض <strong>الصورة</strong> في صفحة بيانات المادة';
+$word['translator'] = 'المترجم:';
+$word['reviewer'] = 'المدقق:';
+$word['date'] = 'تاريخ الإضافة:';
 }else{
 $word['title'] = 'Islamic Library';
 $word['home'] = 'Home';
 $word['error'] = 'Error ID!';
 $word['copy'] = 'Copy shortcode and past in post or page';
 $word['select'] = 'Select language:';
-$word['Languages'] = 'Languages:';
-$word['Language'] = 'Language:';
+$word['languages'] = 'Languages:';
+$word['language'] = 'Language:';
 $word['if_empty'] = 'if empty will write title.';
 $word['options'] = 'Options:';
 $word['player_height'] = 'Player height.';
@@ -66,6 +83,23 @@ $word['size'] = 'Size:';
 $word['section_name'] = 'Section:';
 $word['items'] = 'Items count:';
 $word['shortcode'] = 'Shortcode:';
+$word['hidden_date'] = 'Show <strong>date</strong> in sections';
+$word['hidden_prepared'] = 'Show <strong>prepared by</strong> in sections';
+$word['hidden_language'] = 'Show <strong>language</strong> in sections';
+$word['hidden_translated_into'] = 'Show <strong>translated into</strong> in sections';
+$word['hidden_source'] = 'Show <strong>source</strong> in sections';
+$word['hidden_image'] = 'Show <strong>image</strong> in sections';
+$word['hidden_info_date'] = 'Show <strong>date</strong> in view page';
+$word['hidden_info_prepared'] = 'Show <strong>prepared by</strong> in view page';
+$word['hidden_info_language'] = 'Show <strong>language</strong> in view page';
+$word['hidden_info_translated_into'] = 'Show <strong>translated into</strong> in view page';
+$word['hidden_info_source'] = 'Show <strong>source</strong> in view page';
+$word['hidden_info_full_description'] = 'Show <strong>full description</strong> in view page';
+$word['hidden_info_attachments'] = 'Show <strong>attachments</strong> in view page';
+$word['hidden_info_image'] = 'Show <strong>image</strong> in view page';
+$word['translator'] = 'Translator:';
+$word['reviewer'] = 'Reviewer:';
+$word['date'] = 'Date:';
 }
 return $word[$k];
 }
@@ -118,11 +152,11 @@ if($section == $postinfo->type){
 		$image = strip_tags($postinfo->image);
 	}
 	
-	//$source = 'http://islamhouse.com/'.strip_tags($postinfo->source_language).'/'.$postinfo->type.'/'.$source_id.'/';
-	//$main_source = 'http://islamhouse.com/'.strip_tags($postinfo->source_language).'/main/';
+	$source = 'http://islamhouse.com/'.strip_tags($postinfo->source_language).'/'.$postinfo->type.'/'.$source_id.'/';
+	$main_source = 'http://islamhouse.com/'.strip_tags($postinfo->source_language).'/main/';
 	
-	$source = 'http://plaintruth.org/'.strip_tags($postinfo->source_language).'/'.$postinfo->type.'/'.$source_id.'/';
-	$main_source = 'http://plaintruth.org/'.strip_tags($postinfo->source_language).'/main/';
+	//$source = 'http://plaintruth.org/'.strip_tags($postinfo->source_language).'/'.$postinfo->type.'/'.$source_id.'/';
+	//$main_source = 'http://plaintruth.org/'.strip_tags($postinfo->source_language).'/main/';
 
 	$output .= '<div class="media">';
 	$output .= '<div class="media-body">';
@@ -131,30 +165,57 @@ if($section == $postinfo->type){
 	if($postinfo->description != ""){
 	$output .= '<li><span>'.islamic_library_words('description').'</span> '.strip_tags($postinfo->description).'</li>';
 	}
+	if(get_option('islamic_library_hidden_info_language') == 'on'){
 	$output .= '<li><span>'.islamic_library_words('language').'</span> <a target="_blank" href="'.$main_source.'">'.$language_info[$postinfo->source_language][1].'</a></li>';
-	if($postinfo->translated_language != ""){
-	$output .= '<li><span>'.islamic_library_words('translated').'</span> '.strip_tags($postinfo->translated_language).'</li>';
 	}
+	
+    if(get_option('islamic_library_hidden_info_date') == 'on'){
+    $output .= '<li><span>'.islamic_library_words('date').'</span> '.date("F j, Y, g:i a",$postinfo->add_date).'</li>';
+    }
+	
+	if(get_option('islamic_library_hidden_info_prepared') == 'on'){
 
-	/*
     if (is_array($postinfo->prepared_by)){
-    $output .= '<li>'.islamic_library_words('prepared').'';
-	    $output .= '<ul>';
+	    $authors = '<li><span>'.islamic_library_words('prepared').'</span>';
+	    $authors .= '<ul>';
 		    foreach ($postinfo->prepared_by as $postinfox1) {
-			    $output .= '<li>ID: '.$postinfox1->id.'</li>';
-			    $output .= '<li>Source id: '.$postinfox1->source_id.'</li>';
-			    $output .= '<li>Title: '.htmlEntities($postinfox1->title).'</li>';
-			    $output .= '<li>Type: '.htmlEntities($postinfox1->type).'</li>';
-			    $output .= '<li>Kind: '.htmlEntities($postinfox1->kind).'</li>';
-			    $output .= '<li>Description: '.htmlEntities($postinfox1->description).'</li>';
+		    	$prepared_id = $postinfox1->id;
+		    	$prepared_source_id = $postinfox1->source_id;
+		    	$prepared_title = strip_tags($postinfox1->title);
+		    	$prepared_type = strip_tags($postinfox1->type);
+		    	$prepared_kind = strip_tags($postinfox1->kind);
+		    	$prepared_description = strip_tags($postinfox1->description);
+		    	
+		    	if($prepared_description == ""){
+		    	$author_title = $prepared_title;
+		    	}else{
+		    	$author_title = $prepared_description;
+		    	}
+
+		    	if($prepared_kind == "author"){
+		    	$prepared_link = 'http://islamhouse.com/'.$post_source_language.'/author/'.$prepared_source_id.'/';
+		    	$authors .= '<li><span>'.islamic_library_words('author').'</span> <a title="'.$author_title.'" target="_blank" href="'.$prepared_link.'">'.$prepared_title.'</a></li>';
+		    	}elseif($prepared_kind == "reviewer"){
+		    	$prepared_link = 'http://islamhouse.com/'.$post_source_language.'/author/'.$prepared_source_id.'/';
+		    	$authors .= '<li><span>'.islamic_library_words('reviewer').'</span> <a title="'.$author_title.'" target="_blank" href="'.$prepared_link.'">'.$prepared_title.'</a></li>';
+		    	}elseif($prepared_kind == "source"){
+		    	$prepared_link = 'http://islamhouse.com/'.$post_source_language.'/source/'.$prepared_source_id.'/';
+		    	$authors .= '<li><span>'.islamic_library_words('source').'</span> <a title="'.$author_title.'" target="_blank" href="'.$prepared_link.'">'.$prepared_title.'</a></li>';
+		    	}elseif($prepared_kind == "translator"){
+		    	$prepared_link = 'http://islamhouse.com/'.$post_source_language.'/author/'.$prepared_source_id.'/';
+		    	$authors .= '<li><span>'.islamic_library_words('translator').'</span> <a title="'.$author_title.'" target="_blank" href="'.$prepared_link.'">'.$prepared_title.'</a></li>';
+		    	}
 		    }
-		$output .= '</ul>';
-	$output .= '</li>';
+		  $authors .= '</ul>';
+		  $authors .= '</li>';
+	$output .= $authors;
 	}else{
 	$output .= '';
 	}
-	*/
 	
+	}
+	
+	if(get_option('islamic_library_hidden_info_attachments') == 'on'){
 	if (is_array($postinfo->attachments)){
     $output .= '<li><span>'.islamic_library_words('attachments').'</span>';
 	    $output .= '<ul>';
@@ -231,17 +292,23 @@ if($section == $postinfo->type){
 	}else{
 	$output .= '';
 	}
+	}
 	
+	if(get_option('islamic_library_hidden_info_source') == 'on'){
 	$output .= '<li><span>'.islamic_library_words('source').'</span> <a target="_blank" href="'.$source.'">'.$source.'</a></li>';
+	}
 	$output .= '</ul>';
 	
+	if(get_option('islamic_library_hidden_info_full_description') == 'on'){
 	if($postinfo->full_description == ""){
 	$output .= '';
 	}else{	
 	$output .= '<p>'.$postinfo->full_description.'</p>';
 	}
+	}
 	
-    $output .= '<p>'.islamic_library_words('this_page_translated').' ';
+	if(get_option('islamic_library_hidden_info_translated_into') == 'on'){
+    $output .= '<p><span>'.islamic_library_words('this_page_translated').'</span> ';
     			$view_locales = '';
 		    foreach ($postinfo->locales as $postinfo3 => $v) {
 		    	$params = array( 'item_id' => $source_id, 'language_code' => $v, 'type' => strip_tags($postinfo->type) );
@@ -250,6 +317,7 @@ if($section == $postinfo->type){
 		    }
 		    $output .= rtrim($view_locales,', ');
 	$output .= '</p>';
+	}
 	
 	$output .= '</div>';
 	//$output .= '<div class="media-right media-middle"><a href="#"><img class="media-object" src="'.$image.'" alt="'.strip_tags($postinfo->title).'" /></a></div>';
@@ -299,8 +367,14 @@ $url = 'http://api.plaintruth.org/v1/nWjV8rPMoKcbqkw9/main/'.$section.'/'.$lang.
 
 $language_info = islamic_library_language_info();
 
-$item = islamic_library_get_json_decode($url);
-$pagination = islamic_library_json_info($url, $lang);
+if(isset($_GET['page_number']) && $_GET['page_number'] != 0){
+$link_json = preg_replace('/http:\/\/api.plaintruth.org\/v1\/nWjV8rPMoKcbqkw9\/main\/'.$section.'\/'.$lang.'\/'.$lang.'\/[0-9]+\/25\/json$/' , 'http://api.plaintruth.org/v1/nWjV8rPMoKcbqkw9/main/'.$section.'/'.$lang.'/'.$lang.'/'.intval($_GET['page_number']).'/25/json', $url);
+}else{
+$link_json = $url;
+}
+
+$item = islamic_library_get_json_decode($link_json);
+$pagination = islamic_library_json_info($link_json, $lang);
 
 $output = $pagination;
 $x=0;
@@ -313,8 +387,8 @@ foreach ($item->data as $postinfo) {
 		$image = strip_tags($postinfo->image);
 	}
 	
-	//$source = 'http://islamhouse.com/'.strip_tags($postinfo->source_language).'/'.$postinfo->type.'/'.$postinfo->id.'/';
-	$source = 'http://plaintruth.org/'.strip_tags($postinfo->source_language).'/'.$postinfo->type.'/'.$postinfo->id.'/';
+	$source = 'http://islamhouse.com/'.strip_tags($postinfo->source_language).'/'.$postinfo->type.'/'.$postinfo->id.'/';
+	//$source = 'http://plaintruth.org/'.strip_tags($postinfo->source_language).'/'.$postinfo->type.'/'.$postinfo->id.'/';
 	
 	$params = array( 'item_id' => $postinfo->id, 'language_code' => strip_tags($postinfo->source_language), 'type' => strip_tags($postinfo->type) );
 	$postlink = add_query_arg( $params, $permalink );
@@ -328,37 +402,76 @@ foreach ($item->data as $postinfo) {
 	$output .= '<h4 class="media-heading"><a href="'.$postlink.'">'.strip_tags($postinfo->title).'</a></h4>';
 	$output .= '<ul>';
 	$output .= '<li><span>'.islamic_library_words('description').'</span> '.strip_tags($postinfo->description).'</li>';
+	
+	if(get_option('islamic_library_hidden_language') == 'on'){
 	$output .= '<li><span>'.islamic_library_words('language').'</span> '.$language_info[$lang][1].'</li>';
-	//$output .= '<li><span>'.islamic_library_words('translated').'</span> '.strip_tags($postinfo->translated_language).'</li>';
-    if (is_array($postinfo->prepared_by)){
-	    		$authors = '';
-		    foreach ($postinfo->prepared_by as $postinfox1) {
-			    $Prepared_id = $postinfox1->id;
-			    $Prepared_source_id = $postinfox1->source_id;
-			    $Prepared_title = strip_tags($postinfox1->title);
-			    $Prepared_type = strip_tags($postinfox1->type);
-			    $Prepared_kind = strip_tags($postinfox1->kind);
-			    $Prepared_description = strip_tags($postinfox1->description);
-			    if($Prepared_description == ""){
-			    $Prepared_desc = $Prepared_title;
-			    }else{
-			    $Prepared_desc = $Prepared_description;
-			    }
-				if($Prepared_title == ""){
-				$authors .= '';
-				}else{
-			    //$authors .= '<a target="_blank" title="'.$Prepared_desc.'" href="http://islamhouse.com/'.$lang.'/author/'.$Prepared_id.'/">'.$Prepared_title.'</a>, ';
-			    $authors .= '<a target="_blank" title="'.$Prepared_desc.'" href="http://plaintruth.org/'.$lang.'/author/'.$Prepared_id.'/">'.$Prepared_title.'</a>, ';
-			    }
-		    }
-	if($authors != ""){
-	$output .= '<li><span>'.islamic_library_words('author').'</span> '.rtrim($authors,', ').'</li>';
 	}
+	
+    if(get_option('islamic_library_hidden_date') == 'on'){
+    $output .= '<li><span>'.islamic_library_words('date').'</span> '.date("F j, Y, g:i a",$postinfo->add_date).'</li>';
+    }
+	
+	if(get_option('islamic_library_hidden_prepared') == 'on'){
+
+    if (is_array($postinfo->prepared_by)){
+	    $authors = '<li><span>'.islamic_library_words('prepared').'</span>';
+	    $authors .= '<ul>';
+		    foreach ($postinfo->prepared_by as $postinfox1) {
+		    	$prepared_id = $postinfox1->id;
+		    	$prepared_source_id = $postinfox1->source_id;
+		    	$prepared_title = strip_tags($postinfox1->title);
+		    	$prepared_type = strip_tags($postinfox1->type);
+		    	$prepared_kind = strip_tags($postinfox1->kind);
+		    	$prepared_description = strip_tags($postinfox1->description);
+		    	
+		    	if($prepared_description == ""){
+		    	$author_title = $prepared_title;
+		    	}else{
+		    	$author_title = $prepared_description;
+		    	}
+
+		    	if($prepared_kind == "author"){
+		    	$prepared_link = 'http://islamhouse.com/'.$post_source_language.'/author/'.$prepared_source_id.'/';
+		    	$authors .= '<li><span>'.islamic_library_words('author').'</span> <a title="'.$author_title.'" target="_blank" href="'.$prepared_link.'">'.$prepared_title.'</a></li>';
+		    	}elseif($prepared_kind == "reviewer"){
+		    	$prepared_link = 'http://islamhouse.com/'.$post_source_language.'/author/'.$prepared_source_id.'/';
+		    	$authors .= '<li><span>'.islamic_library_words('reviewer').'</span> <a title="'.$author_title.'" target="_blank" href="'.$prepared_link.'">'.$prepared_title.'</a></li>';
+		    	}elseif($prepared_kind == "source"){
+		    	$prepared_link = 'http://islamhouse.com/'.$post_source_language.'/source/'.$prepared_source_id.'/';
+		    	$authors .= '<li><span>'.islamic_library_words('source').'</span> <a title="'.$author_title.'" target="_blank" href="'.$prepared_link.'">'.$prepared_title.'</a></li>';
+		    	}elseif($prepared_kind == "translator"){
+		    	$prepared_link = 'http://islamhouse.com/'.$post_source_language.'/author/'.$prepared_source_id.'/';
+		    	$authors .= '<li><span>'.islamic_library_words('translator').'</span> <a title="'.$author_title.'" target="_blank" href="'.$prepared_link.'">'.$prepared_title.'</a></li>';
+		    	}
+		    }
+		  $authors .= '</ul>';
+		  $authors .= '</li>';
+	$output .= $authors;
 	}else{
 	$output .= '';
 	}
+	
+	}
+	
+	if(get_option('islamic_library_hidden_translated_into') == 'on'){
+    $output .= '<li><span>'.islamic_library_words('this_page_translated').'</span> ';
+    			$view_locales = '';
+		    foreach ($postinfo->locales as $postinfo3 => $v) {
+		    	$params = array( 'item_id' => $postinfo->id, 'language_code' => $v, 'type' => strip_tags($postinfo->type) );
+				$postlink = add_query_arg( $params, $permalink );
+			    $view_locales .= '<a href="'.$postlink.'">'.$language_info[$v][1].'</a>, ';
+		    }
+		    $output .= rtrim($view_locales,', ');
+	$output .= '</li>';
+	}
+	
+	if(get_option('islamic_library_hidden_source') == 'on'){
 	$output .= '<li><span>'.islamic_library_words('source').'</span> <a target="_blank" href="'.$source.'">'.$source.'</a></li>';
+	}
+	
 	$output .= '</ul>';
+	
+	
 	$output .= '</div>';
 	if($postinfo->image != ""){
 	$output .= '<div class="media-right media-middle"><a href="'.$postlink.'"><img class="media-object" src="'.$image.'" alt="'.strip_tags($postinfo->title).'" /></a></div>';
@@ -380,13 +493,6 @@ foreach ($item->data as $postinfo) {
 	}else{
 	$output .= '';
 	}
-    $output .= '<li>Locales:';
-    			$view_locales = '';
-		    foreach ($postinfo->locales as $postinfo3 => $v) {
-			    $view_locales .= ''.$v.',';
-		    }
-		    $output .= rtrim($view_locales,',');
-	$output .= '</li>';
     $output .= '</ul>';
     */
 }
